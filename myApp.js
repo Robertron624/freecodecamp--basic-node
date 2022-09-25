@@ -7,6 +7,15 @@ console.log("Hello World")
 
 app.use('/public',express.static( path.join(__dirname, '/public')))
 
+app.use(function myMiddleware(req, res, next){
+    const method = req.method
+    const path = req.path
+    const ip = req.ip
+    res.send(`${method} ${path} - ${ip}`)
+
+    next()
+}) 
+
 app.get("/", (req, res)=>{
     res.sendFile(path.join(__dirname, './views/index.html'))
 })

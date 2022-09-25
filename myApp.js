@@ -38,6 +38,16 @@ app.get("/:word/echo", (req, res)=>{
     })
 })
 
+app.route('/name')
+.get((req, res)=>{
+    let name = req.query.first
+    let lastname = req.query.last
+    res.send({
+        name: `${name} ${lastname}`
+    })
+})
+.post()
+
 
 app.get('/json', (req, res)=>{
     let mensaje

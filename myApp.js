@@ -31,6 +31,13 @@ app.get("/", (req, res)=>{
     res.sendFile(path.join(__dirname, './views/index.html'))
 })
 
+app.get("/:word/echo", (req, res)=>{
+    let word = req.params.word
+    res.send({
+        echo:word
+    })
+})
+
 
 app.get('/json', (req, res)=>{
     let mensaje

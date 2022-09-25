@@ -1,11 +1,14 @@
 let express = require('express');
 let app = express();
 const path = require('path')
+const bodyParser = require('body-parser')
 require('dotenv').config()
 
 console.log("Hello World")
 
 app.use('/public',express.static( path.join(__dirname, '/public')))
+
+app.use(bodyParser.urlencoded({extended:false}))
 
 app.use((req, res, next) => {
     const method = req.method

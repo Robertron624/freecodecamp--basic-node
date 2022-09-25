@@ -49,7 +49,13 @@ app.route('/name')
         name: `${name} ${lastname}`
     })
 })
-.post()
+.post((req, res)=>{
+    let name = req.body.first
+    let lastname = req.body.last
+    res.send({
+        name: `${name} ${lastname}`
+    })
+})
 
 
 app.get('/json', (req, res)=>{
